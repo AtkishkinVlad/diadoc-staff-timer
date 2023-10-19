@@ -48,6 +48,7 @@
   font-size: max(40px, 3vw);
   color: var(--grayscaleDisabledText);
   font-weight: 700;
+  text-wrap: balance;
 }
 
 .header {
