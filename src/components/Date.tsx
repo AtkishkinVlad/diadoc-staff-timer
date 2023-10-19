@@ -22,6 +22,6 @@ export const DateAfterLastLeave: FC<Props> = ({ lastLeaveDate }) => {
     const diffInMinutes = differenceInMinutes(currentDate, lastLeaveDate)
     
     return (<time>
-        <span className="date__days">{diffInDays} дней</span> / <span className="date__hours">{diffInHours} часов</span> / <span className="date__minutes">{diffInMinutes} минут</span>
+        <span className="date__days">{diffInDays} дней</span> <span className="separator">/</span> <span className="date__hours">{diffInHours} часов</span> <span className="separator">/</span> <span className="date__minutes">{diffInMinutes} минут</span>
     </time>)
 }

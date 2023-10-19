@@ -10,7 +10,7 @@ function App() {
 
   function renderModal() {
     return (
-      <Modal width={600} onClose={close}>
+      <Modal onClose={close}>
         <Modal.Header>
             <h2 className='modal__header'>
               Настройки таймера

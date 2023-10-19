@@ -24,8 +24,24 @@
 }
 
 .date__days {
-  font-size: max(96px, 7vw);
+  font-size: max(96px, 10vw);
   font-weight: 700;
+}
+
+.date__hours {
+  font-size: max(48px, 3vw);
+  font-weight: 700;
+}
+
+.date__minutes {
+  font-size: max(48px, 3vw);
+  font-weight: 700;
+}
+
+.separator {
+  font-size: max(32px, 2vw);
+  font-weight: 700;
+  padding: 0 8px;
 }
 
 .main__primaryText {
