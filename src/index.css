@@ -1,0 +1,54 @@
+@import "@skbkontur/colors/colors.css";
+
+:root {
+  font-family: Lab Grotesque K, -apple-system, BlinkMacSystemFont, Arial,
+    Liberation Sans, Nimbus Sans L, sans-serif;
+  background-color: black;
+  color: var(--grayscaleWhite);
+}
+
+.header__appName {
+  font-size: max(40px, 2vw);
+}
+
+.main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  width: 80vw;
+  margin: max(2vw, 16px);
+}
+
+.main__clock {
+  height: max(320px, 40vh);
+}
+
+.date__days {
+  font-size: max(96px, 7vw);
+  font-weight: 700;
+}
+
+.main__primaryText {
+  font-size: max(40px, 3vw);
+  color: var(--grayscaleDisabledText);
+  font-weight: 700;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 80vw;
+  align-items: center;
+  gap: 16px;
+  margin: max(2vw, 16px);
+}
+
+.datapicker__helper {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.modal__header {
+  font-size: 40px;
+  margin: 8px 0;
+}
