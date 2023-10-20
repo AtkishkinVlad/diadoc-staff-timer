@@ -1,9 +1,10 @@
 import { SettingsGearIcon64Regular } from '@skbkontur/icons/icons/SettingsGearIcon/SettingsGearIcon64Regular'
-import { Button, Center, DatePicker, Gapped, Modal } from '@skbkontur/react-ui'
+import { Button, Center, DatePicker, Gapped, Hint, Modal } from '@skbkontur/react-ui'
 
 import clockPath from './assets/clock.svg';
 import { DateAfterLastLeave } from './components/Date';
 import React, { createContext, useState } from 'react';
+import { ArrowRoundTimeBackIcon64Regular } from '@skbkontur/icons/icons/ArrowRoundTimeBackIcon/ArrowRoundTimeBackIcon64Regular';
 
 export const DateContext = createContext<null | Date>(null);
 
@@ -58,7 +59,13 @@ function App() {
       <h1 className='header__appName'>
         Остаться в живых
       </h1>
-      <SettingsGearIcon64Regular className='settings' onClick={open} />
+      <Hint pos='left' text="Настройки">
+        <SettingsGearIcon64Regular className='settings' onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            open();
+          }
+        }} onClick={open} />
+      </Hint>
       </header>
       <main className='main'>
         <img className='main__clock' src={clockPath} alt='Часы' />
@@ -70,12 +77,12 @@ function App() {
         </div>
       </main>
       <footer className='footer'>
-          {currentDate && <Button onClick={() => {
-            setDate(null);
-            setCurrentDate('');
-          }} use='danger' size='large'>
-            Сбросить таймер
-          </Button>}
+          {currentDate && <Hint pos='left' text="Сбросить таймер">
+            <Button icon={<ArrowRoundTimeBackIcon64Regular />} onClick={() => {
+              setDate(null);
+              setCurrentDate('');
+            }} use='danger' size='large' />
+          </Hint>}
       </footer>
     </Center>
     </DateContext.Provider>

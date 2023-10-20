@@ -12,6 +12,11 @@
   margin: 0;
 }
 
+.emptyStub__text {
+  font-size: max(20px, 2vw);
+  font-weight: 500;
+}
+
 .main {
   display: flex;
   flex-flow: column nowrap;
@@ -65,6 +70,7 @@
 .footer {
   display: flex;
   justify-content: end;
+  width: 90vw;
 }
 
 .settings {
@@ -72,9 +78,11 @@
   padding: .5vh;
 }
 
-.settings:hover {
+.settings:hover,
+.settings:focus-visible {
   background-color: var(--grayscaleText);
   border-radius: .5vw;
+  outline: none;
 }
 
 .datapicker__helper {
@@ -83,6 +91,6 @@
 }
 
 .modal__header {
-  font-size: max(3vw, 40px);
-  margin: 1vw 0;
+  font-size: max(2vw, 32px);
+  margin: 1vw 1vw 0 0;
 }
