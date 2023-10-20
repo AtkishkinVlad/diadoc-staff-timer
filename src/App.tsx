@@ -79,7 +79,7 @@ function App() {
       <footer className='footer'>
           {currentDate && <Hint pos='left' text="Сбросить таймер">
             <Button icon={<ArrowRoundTimeBackIcon64Regular />} onClick={() => {
-              setDate(null);
+              setDate(new Date());
               setCurrentDate('');
             }} use='danger' size='large' />
           </Hint>}
