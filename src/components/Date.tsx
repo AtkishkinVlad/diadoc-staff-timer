@@ -1,27 +1,29 @@
-import { FC } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 
-import differenceInDays from 'date-fns/differenceInDays';
-import differenceInHours from 'date-fns/differenceInHours';
-import differenceInMinutes from 'date-fns/differenceInMinutes';
+import intervalToDuration from 'date-fns/intervalToDuration';
+import { DateContext } from "../App";
 
-type Props = {
-    lastLeaveDate: Date | null;
-}
+export const DateAfterLastLeave: FC = () => {
+    const [currentDate, setCurrentDate] = useState(new Date());
+    const startDate = useContext(DateContext);
 
-export const DateAfterLastLeave: FC<Props> = ({ lastLeaveDate }) => {
-    const currentDate = new Date();
+    useEffect(() => {
+        setInterval(() => setCurrentDate(new Date()), 60_000)
+    }, [currentDate])
 
-    if (!lastLeaveDate) {
-        return (<p>
-            Необходимо указать дату последнего выхода из команды...
-        </p>)
+    if (!startDate) {
+        return (
+            <p>
+                Необходимо указать дату последнего выхода из команды...
+            </p>
+        )
     }
 
-    const diffInDays = differenceInDays(currentDate, lastLeaveDate)
-    const diffInHours = differenceInHours(currentDate, lastLeaveDate)
-    const diffInMinutes = differenceInMinutes(currentDate, lastLeaveDate)
+    const interval = intervalToDuration({ start: startDate, end: currentDate });
     
-    return (<time>
-        <span className="date__days">{diffInDays} дней</span> <span className="separator">/</span> <span className="date__hours">{diffInHours} часов</span> <span className="separator">/</span> <span className="date__minutes">{diffInMinutes} минут</span>
-    </time>)
+    return (
+        <time>
+            <span className="date__days">{interval.days} дней</span> <span className="separator">/</span> <span className="date__hours">{interval.hours} часов</span> <span className="separator">/</span> <span className="date__minutes">{interval.minutes} минут</span>
+        </time>
+    )
 }

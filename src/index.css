@@ -1,7 +1,7 @@
 @import "@skbkontur/colors/colors.css";
 
 :root {
-  font-family: Lab Grotesque K, -apple-system, BlinkMacSystemFont, Arial,
+  font-family: Lab Grotesque, -apple-system, BlinkMacSystemFont, Arial,
     Liberation Sans, Nimbus Sans L, sans-serif;
   background-color: black;
   color: var(--grayscaleWhite);
@@ -9,6 +9,7 @@
 
 .header__appName {
   font-size: max(40px, 2vw);
+  margin: 0;
 }
 
 .main {
@@ -16,7 +17,7 @@
   flex-flow: column nowrap;
   justify-content: space-between;
   width: 80vw;
-  margin: max(2vw, 16px);
+  margin: max(1vw, 16px);
 }
 
 .main__clock {
@@ -41,11 +42,12 @@
 .separator {
   font-size: max(32px, 2vw);
   font-weight: 700;
-  padding: 0 8px;
+  padding: 0 max(1vw, 16px);
 }
 
 .main__primaryText {
   font-size: max(40px, 3vw);
+  margin-bottom: max(20px, 1vw);
   color: var(--grayscaleDisabledText);
   font-weight: 700;
   text-wrap: balance;
@@ -54,10 +56,25 @@
 .header {
   display: flex;
   justify-content: space-between;
-  width: 80vw;
+  width: 90vw;
   align-items: center;
-  gap: 16px;
-  margin: max(2vw, 16px);
+  gap: 1vw;
+  margin: max(1vw, 16px);
+}
+
+.footer {
+  display: flex;
+  justify-content: end;
+}
+
+.settings {
+  cursor: pointer;
+  padding: .5vh;
+}
+
+.settings:hover {
+  background-color: var(--grayscaleText);
+  border-radius: .5vw;
 }
 
 .datapicker__helper {
@@ -66,6 +83,6 @@
 }
 
 .modal__header {
-  font-size: 40px;
-  margin: 8px 0;
+  font-size: max(3vw, 40px);
+  margin: 1vw 0;
 }
