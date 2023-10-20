@@ -8,7 +8,7 @@ export const DateAfterLastLeave: FC = () => {
     const startDate = useContext(DateContext);
 
     useEffect(() => {
-        setInterval(() => setCurrentDate(new Date()), 60_000)
+        setInterval(() => setCurrentDate(new Date()), 1000)
     }, [currentDate])
 
     if (!startDate) {
@@ -23,7 +23,7 @@ export const DateAfterLastLeave: FC = () => {
     
     return (
         <time>
-            <span className="date__days">{interval.days} дней</span> <span className="separator">/</span> <span className="date__hours">{interval.hours} часов</span> <span className="separator">/</span> <span className="date__minutes">{interval.minutes} минут</span>
+            <span className="date__days">{interval.days}&nbsp;дней</span> <span className="separator">/</span> <span className="date__hours">{interval.hours}&nbsp;часов</span><span className="separator">/</span> <span className="date__minutes">{interval.minutes}&nbsp;минут</span><span className="separator">/</span><span className="date__minutes">{interval.seconds}&nbsp;секунд</span>
         </time>
     )
 }

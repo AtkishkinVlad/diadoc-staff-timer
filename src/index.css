@@ -26,7 +26,7 @@
 }
 
 .main__clock {
-  height: max(320px, 40vh);
+  height: max(400px, 45vh);
 }
 
 .date__days {
@@ -61,7 +61,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  width: 90vw;
+  width: 95vw;
   align-items: center;
   gap: 1vw;
   margin: max(1vw, 16px);
@@ -70,7 +70,7 @@
 .footer {
   display: flex;
   justify-content: end;
-  width: 90vw;
+  width: 95vw;
 }
 
 .settings {
