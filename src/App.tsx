@@ -9,8 +9,8 @@ import getDate from 'date-fns/getDate';
 import getYear from 'date-fns/getYear';
 import { getMonth } from 'date-fns';
 import format from 'date-fns/format';
-import { TimeClockMoveBackIcon16Solid } from '@skbkontur/icons/icons/TimeClockMoveBackIcon/TimeClockMoveBackIcon16Solid';
-import { TransportAirRocketIcon16Solid } from '@skbkontur/icons/icons/TransportAirRocketIcon/TransportAirRocketIcon16Solid';
+import { TimeClockMoveBackIcon16Regular } from '@skbkontur/icons/icons/TimeClockMoveBackIcon/TimeClockMoveBackIcon16Regular';
+import { TransportAirRocketIcon16Regular } from '@skbkontur/icons/icons/TransportAirRocketIcon/TransportAirRocketIcon16Regular';
 
 export const DateContext = createContext<null | Date>(null);
 
@@ -72,14 +72,18 @@ function App() {
           </Tooltip>
         </Modal.Body>
         <Modal.Footer>
-          <Gapped gap={16}>
-            <Button icon={<TransportAirRocketIcon16Solid />} size='large' use='primary' onClick={close}><strong>Запустить</strong></Button>
-            <Button icon={<TimeClockMoveBackIcon16Solid />} size='large' use='danger' onClick={() => {
+          <Gapped gap={24}>
+            <Button icon={<TransportAirRocketIcon16Regular />} size='large' use='primary' onClick={close}>
+              Запустить
+            </Button>
+            <Button icon={<TimeClockMoveBackIcon16Regular />} size='large' use='danger' onClick={() => {
               close();
               setDate(null);
               setCurrentDate('');
               window.localStorage.removeItem('currentDate');
-            }}><strong>Сбросить</strong></Button>
+            }}>
+              Сбросить
+            </Button>
           </Gapped>
         </Modal.Footer>
       </Modal>
