@@ -107,7 +107,7 @@ function App() {
         Остаться в живых 😻
       </h1>
       <Hint pos='left' text="Настройки">
-        <SettingsGearIcon64Regular className='settings' onKeyDown={(event) => {
+        <SettingsGearIcon64Regular aria-label='Настройки' className='settings' onKeyDown={(event) => {
           if (event.key === "Enter") {
             open();
           }
@@ -125,7 +125,7 @@ function App() {
       </main>
       <footer className='footer'>
           {date && <Hint pos='left' text="Сбросить таймер">
-            <Button icon={<ArrowRoundTimeBackIcon64Regular />} onClick={() => {
+            <Button aria-label='Сбросить таймер' icon={<ArrowRoundTimeBackIcon64Regular />} onClick={() => {
               const date = new Date();
 
               setDate(date);
