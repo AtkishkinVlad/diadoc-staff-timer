@@ -69,7 +69,7 @@ function App() {
       </header>
       <main className='main'>
         <img className='main__clock' src={clockPath} alt='Часы' />
-        <div>
+        <div className='main__content'>
           <p className='main__primaryText'>
             Работаем без потерь на производстве
           </p>

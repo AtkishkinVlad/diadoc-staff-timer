@@ -30,6 +30,10 @@
   width: 90vw;
 }
 
+.main__content {
+  width: 90vw;
+}
+
 .date__days {
   font-size: max(96px, 10vw);
   font-weight: 700;
