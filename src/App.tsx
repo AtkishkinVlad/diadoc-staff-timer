@@ -56,7 +56,7 @@ function App() {
         </Modal.Header>
         <Modal.Body>
           <p className='datapicker__helper'>День отсчета</p>
-          <Tooltip trigger={tooltip ? 'opened' : 'closed'} render={() => 'Гость из будущего 🔮'} onCloseClick={removeTooltip}>
+          <Tooltip pos='right middle' trigger={tooltip ? 'opened' : 'closed'} render={() => 'Гость из будущего 🔮'} onCloseClick={removeTooltip}>
           <DatePicker error={error}
             onFocus={unvalidate}
             onBlur={validate}
