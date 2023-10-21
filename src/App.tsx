@@ -3,8 +3,11 @@ import { Button, Center, DatePicker, Gapped, Hint, Modal } from '@skbkontur/reac
 
 import clockPath from './assets/clock.svg';
 import { DateAfterLastLeave } from './components/Date';
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { ArrowRoundTimeBackIcon64Regular } from '@skbkontur/icons/icons/ArrowRoundTimeBackIcon/ArrowRoundTimeBackIcon64Regular';
+import getDate from 'date-fns/getDate';
+import getYear from 'date-fns/getYear';
+import { getMonth } from 'date-fns';
 
 export const DateContext = createContext<null | Date>(null);
 
@@ -12,6 +15,18 @@ function App() {
   const [opened, setOpened] = React.useState(false);
   const [date, setDate] = useState<Date | null>(null);
   const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    const saveLastDate = window.localStorage.getItem('currentDate');
+    
+    if (!saveLastDate) {
+      return;
+    }
+
+    const [day, month, year] = saveLastDate.split('.');
+    setCurrentDate(saveLastDate);
+    setDate(new Date(+year, +month - 1, +day));
+  }, [])
 
   function renderModal() {
     return (
@@ -24,6 +39,8 @@ function App() {
         <Modal.Body>
           <p className='datapicker__helper'>День отсчета</p>
           <DatePicker enableTodayLink size='large' value={currentDate} onValueChange={(event) => {
+            window.localStorage.setItem('currentDate', event);
+
             const [day, month, year] = event.split('.');
             setCurrentDate(event);
             setDate(new Date(+year, +month - 1, +day));
@@ -36,6 +53,7 @@ function App() {
               close();
               setDate(null);
               setCurrentDate('');
+              window.localStorage.removeItem('currentDate');
             }}>Сбросить таймер</Button>
           </Gapped>
         </Modal.Footer>
@@ -79,8 +97,12 @@ function App() {
       <footer className='footer'>
           {date && <Hint pos='left' text="Сбросить таймер">
             <Button icon={<ArrowRoundTimeBackIcon64Regular />} onClick={() => {
-              setDate(new Date());
-              setCurrentDate('');
+              const date = new Date();
+
+              setDate(date);
+              setCurrentDate(`${getDate(date)}.${getMonth(date)}.${getYear(date)}`);
+
+              window.localStorage.setItem('currentDate', `${getDate(date)}.${getMonth(date)}.${getYear(date)}`);
             }} use='danger' size='large' />
           </Hint>}
       </footer>
