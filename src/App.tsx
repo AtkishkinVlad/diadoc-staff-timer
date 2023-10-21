@@ -100,9 +100,9 @@ function App() {
               const date = new Date();
 
               setDate(date);
-              setCurrentDate(`${getDate(date)}.${getMonth(date)}.${getYear(date)}`);
+              setCurrentDate(`${getDate(date)}.${getMonth(date) + 1}.${getYear(date)}`);
 
-              window.localStorage.setItem('currentDate', `${getDate(date)}.${getMonth(date)}.${getYear(date)}`);
+              window.localStorage.setItem('currentDate', `${getDate(date)}.${getMonth(date) + 1}.${getYear(date)}`);
             }} use='danger' size='large' />
           </Hint>}
       </footer>
