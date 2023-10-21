@@ -57,7 +57,7 @@ function App() {
             </h2>
         </Modal.Header>
         <Modal.Body>
-          <Hint text="Назначить день отсчета для таймера">
+          <Hint pos='right' text="Назначить день отсчета для таймера">
             <Tooltip pos='right middle' trigger={tooltip ? 'opened' : 'closed'} render={() => 'Гость из будущего 🔮'} onCloseClick={removeTooltip}>
               <DatePicker error={error}
                 onFocus={unvalidate}
