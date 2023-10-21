@@ -35,7 +35,7 @@ export const DateAfterLastLeave: FC = () => {
                 <br /><hr />
                 <span className="date__hours">{interval.hours}&nbsp;<FormattedPlural value={Number(interval.hours)} one="час" zero="часов" few="часа" many="часов" other="часов" /></span><span className="separator">/</span> 
                 <span className="date__minutes">{interval.minutes}&nbsp;<FormattedPlural value={Number(interval.minutes)} one="минуту" zero="минут" few="минуты" many="минут" other="минут" /></span><span className="separator">/</span>
-                <span className="date__seconds">{interval.seconds}&nbsp;<FormattedPlural value={Number(interval.seconds)} one="секунда" zero="секунд" few="секунды" many="секунд" other="секунды" /></span>
+                <span className="date__seconds">{interval.seconds}&nbsp;<FormattedPlural value={Number(interval.seconds)} one="секунду" zero="секунд" few="секунды" many="секунд" other="секунды" /></span>
             </time>
         )
     } catch {
