@@ -37,31 +37,37 @@
 .date__month {
   font-size: max(56px, 5vw);
   font-weight: 700;
+  font-variant: tabular-nums;
 }
 
 .date__year {
   font-size: max(56px, 5vw);
   font-weight: 700;
+  font-variant: tabular-nums;
 }
 
 .date__days {
   font-size: max(56px, 5vw);
   font-weight: 700;
+  font-variant: tabular-nums;
 }
 
 .date__hours {
   font-size: max(40px, 3vw);
   font-weight: 700;
+  font-variant: tabular-nums;
 }
 
 .date__minutes {
   font-size: max(20px, 1.5vw);
   font-weight: 700;
+  font-variant: tabular-nums;
 }
 
 .date__seconds {
   font-size: max(20px, 1.5vw);
   font-weight: 700;
+  font-variant: tabular-nums;
 }
 
 .separator {
