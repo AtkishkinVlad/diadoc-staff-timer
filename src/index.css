@@ -114,12 +114,14 @@
 .settings {
   cursor: pointer;
   padding: .5vh;
+  border: .2vw solid transparent;
 }
 
 .settings:hover,
 .settings:focus-visible {
   background-color: var(--grayscaleText);
   border-radius: .5vw;
+  border: .2vw solid var(--grayscaleWhite);
   outline: none;
 }
 
