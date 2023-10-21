@@ -8,7 +8,15 @@ export const DateAfterLastLeave: FC = () => {
     const startDate = useContext(DateContext);
 
     useEffect(() => {
-        setInterval(() => setCurrentDate(new Date()), 1000)
+        let timer: number | undefined;
+        
+        setTimeout(() => {
+            timer = setInterval(() => {
+                setCurrentDate(new Date())
+            }, 1000);
+        }, 2000);
+
+        return () => clearInterval(timer);
     }, [currentDate])
 
     if (!startDate) {
