@@ -27,7 +27,7 @@ function App() {
   };
 
   const validate = () => {
-    const errorNew = !!currentDate && !DatePicker.validate(currentDate, { minDate: '01.07.2022', maxDate: maxDate });
+    const errorNew = !!currentDate && !DatePicker.validate(currentDate, { minDate: '01.07.2022', maxDate });
     setError(errorNew);
     setTooltip(errorNew);
   };
@@ -57,7 +57,7 @@ function App() {
         <Modal.Body>
           <p className='datapicker__helper'>День отсчета</p>
           <Tooltip trigger={tooltip ? 'opened' : 'closed'} render={() => 'Гость из будущего 🔮'} onCloseClick={removeTooltip}>
-          <DatePicker minDate='01.07.2022' maxDate={format(new Date(), 'dd.mm.yyyy')} error={error}
+          <DatePicker error={error}
             onFocus={unvalidate}
             onBlur={validate}
             enableTodayLink size='large' value={currentDate} onValueChange={(event) => {
