@@ -57,19 +57,20 @@ function App() {
             </h2>
         </Modal.Header>
         <Modal.Body>
-          <p className='datapicker__helper'>День отсчета</p>
-          <Tooltip pos='right middle' trigger={tooltip ? 'opened' : 'closed'} render={() => 'Гость из будущего 🔮'} onCloseClick={removeTooltip}>
-          <DatePicker error={error}
-            onFocus={unvalidate}
-            onBlur={validate}
-            enableTodayLink size='large' value={currentDate} onValueChange={(event) => {
-            window.localStorage.setItem('currentDate', event);
+          <Hint text="Назначить день отсчета для таймера">
+            <Tooltip pos='right middle' trigger={tooltip ? 'opened' : 'closed'} render={() => 'Гость из будущего 🔮'} onCloseClick={removeTooltip}>
+              <DatePicker error={error}
+                onFocus={unvalidate}
+                onBlur={validate}
+                enableTodayLink size='large' value={currentDate} onValueChange={(event) => {
+                window.localStorage.setItem('currentDate', event);
 
-            const [day, month, year] = event.split('.');
-            setCurrentDate(event);
-            setDate(new Date(+year, +month - 1, +day));
-          }} />
-          </Tooltip>
+                const [day, month, year] = event.split('.');
+                setCurrentDate(event);
+                setDate(new Date(+year, +month - 1, +day));
+              }} />
+            </Tooltip>
+          </Hint>
         </Modal.Body>
         <Modal.Footer>
           <Gapped gap={24}>

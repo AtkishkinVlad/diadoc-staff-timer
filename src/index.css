@@ -123,12 +123,7 @@
   outline: none;
 }
 
-.datapicker__helper {
-  font-weight: 700;
-  font-size: 24px;
-}
-
 .modal__header {
   font-size: max(2vw, 32px);
-  margin: 1vw 1vw 0 0;
+  margin: 1vw 1vw 1vw 0;
 }
