@@ -1,5 +1,5 @@
 import { SettingsGearIcon64Regular } from '@skbkontur/icons/icons/SettingsGearIcon/SettingsGearIcon64Regular'
-import { Button, Center, DatePicker, Gapped, Hint, Modal } from '@skbkontur/react-ui'
+import { Button, Center, DatePicker, Gapped, Hint, Modal, Tooltip } from '@skbkontur/react-ui'
 
 import clockPath from './assets/clock.svg';
 import { DateAfterLastLeave } from './components/Date';
@@ -8,6 +8,7 @@ import { ArrowRoundTimeBackIcon64Regular } from '@skbkontur/icons/icons/ArrowRou
 import getDate from 'date-fns/getDate';
 import getYear from 'date-fns/getYear';
 import { getMonth } from 'date-fns';
+import format from 'date-fns/format';
 
 export const DateContext = createContext<null | Date>(null);
 
@@ -15,6 +16,23 @@ function App() {
   const [opened, setOpened] = React.useState(false);
   const [date, setDate] = useState<Date | null>(null);
   const [currentDate, setCurrentDate] = useState('');
+  const [error, setError] = React.useState(false);
+  const [tooltip, setTooltip] = React.useState(false);
+
+  const maxDate = format(new Date(), 'dd.MM.yyyy');
+
+  const unvalidate = () => {
+    setError(false);
+    setTooltip(false);
+  };
+
+  const validate = () => {
+    const errorNew = !!currentDate && !DatePicker.validate(currentDate, { minDate: '01.07.2022', maxDate: maxDate });
+    setError(errorNew);
+    setTooltip(errorNew);
+  };
+
+  const removeTooltip = () => setTooltip(false);
 
   useEffect(() => {
     const saveLastDate = window.localStorage.getItem('currentDate');
@@ -38,13 +56,18 @@ function App() {
         </Modal.Header>
         <Modal.Body>
           <p className='datapicker__helper'>День отсчета</p>
-          <DatePicker enableTodayLink size='large' value={currentDate} onValueChange={(event) => {
+          <Tooltip trigger={tooltip ? 'opened' : 'closed'} render={() => 'Гость из будущего 🔮'} onCloseClick={removeTooltip}>
+          <DatePicker minDate='01.07.2022' maxDate={format(new Date(), 'dd.mm.yyyy')} error={error}
+            onFocus={unvalidate}
+            onBlur={validate}
+            enableTodayLink size='large' value={currentDate} onValueChange={(event) => {
             window.localStorage.setItem('currentDate', event);
 
             const [day, month, year] = event.split('.');
             setCurrentDate(event);
             setDate(new Date(+year, +month - 1, +day));
           }} />
+          </Tooltip>
         </Modal.Body>
         <Modal.Footer>
           <Gapped gap={16}>
