@@ -49,6 +49,11 @@
   font-weight: 700;
 }
 
+.date__seconds {
+  font-size: max(24px, 1.5vw);
+  font-weight: 700;
+}
+
 .separator {
   font-size: max(32px, 2vw);
   font-weight: 700;

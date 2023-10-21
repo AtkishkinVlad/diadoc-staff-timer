@@ -23,7 +23,7 @@ export const DateAfterLastLeave: FC = () => {
     
     return (
         <time>
-            <span className="date__days">{interval.days}&nbsp;дней</span> <span className="separator">/</span> <span className="date__hours">{interval.hours}&nbsp;часов</span><span className="separator">/</span> <span className="date__minutes">{interval.minutes}&nbsp;минут</span><span className="separator">/</span><span className="date__minutes">{interval.seconds}&nbsp;секунд</span>
+            <span className="date__days">{interval.days}&nbsp;дней</span> <span className="separator">/</span> <span className="date__hours">{interval.hours}&nbsp;часов</span><span className="separator">/</span> <span className="date__minutes">{interval.minutes}&nbsp;минут</span><span className="separator">/</span><span className="date__seconds">{interval.seconds}&nbsp;секунд</span>
         </time>
     )
 }
