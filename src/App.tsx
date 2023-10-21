@@ -73,13 +73,13 @@ function App() {
         </Modal.Body>
         <Modal.Footer>
           <Gapped gap={16}>
-            <Button icon={<TransportAirRocketIcon16Solid />} size='large' use='primary' onClick={close}><strong>Запустить таймер</strong></Button>
+            <Button icon={<TransportAirRocketIcon16Solid />} size='large' use='primary' onClick={close}><strong>Запустить</strong></Button>
             <Button icon={<TimeClockMoveBackIcon16Solid />} size='large' use='danger' onClick={() => {
               close();
               setDate(null);
               setCurrentDate('');
               window.localStorage.removeItem('currentDate');
-            }}><strong>Сбросить таймер</strong></Button>
+            }}><strong>Сбросить</strong></Button>
           </Gapped>
         </Modal.Footer>
       </Modal>
