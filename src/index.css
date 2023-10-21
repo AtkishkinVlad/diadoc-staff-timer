@@ -76,6 +76,18 @@
   padding: 0 max(1vw, 16px);
 }
 
+.separator {
+  font-size: max(32px, 2vw);
+  font-weight: 700;
+  padding: 0 max(1vw, 16px);
+}
+
+.separator__big {
+  font-size: max(40px, 3vw);
+  font-weight: 700;
+  padding: 0 max(1.5vw, 24px);
+}
+
 .main__primaryText {
   font-size: max(40px, 3vw);
   margin-bottom: max(20px, 1vw);

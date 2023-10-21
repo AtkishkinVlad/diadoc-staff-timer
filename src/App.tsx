@@ -98,7 +98,7 @@ function App() {
       {opened && renderModal()}
       <header className='header'>
       <h1 className='header__appName'>
-        Остаться в живых
+        Остаться в живых 😻
       </h1>
       <Hint pos='left' text="Настройки">
         <SettingsGearIcon64Regular className='settings' onKeyDown={(event) => {

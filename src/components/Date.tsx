@@ -29,8 +29,8 @@ export const DateAfterLastLeave: FC = () => {
     
         return (
             <time>
-                <span className="date__year">{interval.years}&nbsp;<FormattedPlural value={Number(interval.years)} one="год" zero="лет" few="года" many="лет" other="лет" /></span> <span className="separator">/</span>
-                <span className="date__month">{interval.months}&nbsp;<FormattedPlural value={Number(interval.months)} one="месяц" zero="месяцев" few="месяца" many="месяцев" other="месяцев" /></span><span className="separator">/</span>
+                <span className="date__year">{interval.years}&nbsp;<FormattedPlural value={Number(interval.years)} one="год" zero="лет" few="года" many="лет" other="лет" /></span> <span className="separator__big">/</span>
+                <span className="date__month">{interval.months}&nbsp;<FormattedPlural value={Number(interval.months)} one="месяц" zero="месяцев" few="месяца" many="месяцев" other="месяцев" /></span><span className="separator__big">/</span>
                 <span className="date__days">{interval.days}&nbsp;<FormattedPlural value={Number(interval.days)} one="день" zero="дней" few="дня" many="дней" other="день" /></span>
                 <br /><hr />
                 <span className="date__hours">{interval.hours}&nbsp;<FormattedPlural value={Number(interval.hours)} one="час" zero="часов" few="часа" many="часов" other="часов" /></span><span className="separator">/</span> 
