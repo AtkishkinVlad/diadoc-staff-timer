@@ -23,7 +23,7 @@ function App() {
         </Modal.Header>
         <Modal.Body>
           <p className='datapicker__helper'>День отсчета</p>
-          <DatePicker size='large' value={currentDate} onValueChange={(event) => {
+          <DatePicker enableTodayLink size='large' value={currentDate} onValueChange={(event) => {
             const [day, month, year] = event.split('.');
             setCurrentDate(event);
             setDate(new Date(+year, +month - 1, +day));
