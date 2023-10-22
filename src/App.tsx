@@ -104,16 +104,23 @@ function App() {
     <Center>
       {opened && renderModal()}
       <header className='header'>
-      <h1 className='header__appName'>
-        Остаться в живых 😻
-      </h1>
-      <Hint pos='left' text="Настройки">
-        <SettingsGearIcon64Regular aria-label='Настройки' className='settings' onKeyDown={(event) => {
-          if (event.key === "Enter") {
-            open();
-          }
-        }} onClick={open} />
+        <Hint pos='right' text="Настройки">
+          <SettingsGearIcon64Regular aria-label='Настройки' className='settings' onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              open();
+            }
+          }} onClick={open} />
       </Hint>
+      {date && <Hint pos='left' text="Сбросить таймер">
+            <ArrowRoundTimeBackIcon64Regular className='reset' aria-label='Сбросить таймер' onClick={() => {
+              const date = new Date();
+
+              setDate(date);
+              setCurrentDate(`${getDate(date)}.${getMonth(date) + 1}.${getYear(date)}`);
+
+              window.localStorage.setItem('currentDate', `${getDate(date)}.${getMonth(date) + 1}.${getYear(date)}`);
+            }}  />
+          </Hint>}
       </header>
       <main className='main'>
         <img className='main__clock' src={clockPath} alt='Часы' />
@@ -124,18 +131,15 @@ function App() {
           <DateAfterLastLeave />
         </div>
       </main>
-      <footer className='footer'>
-          {date && <Hint pos='left' text="Сбросить таймер">
-            <Button aria-label='Сбросить таймер' icon={<ArrowRoundTimeBackIcon64Regular />} onClick={() => {
-              const date = new Date();
-
-              setDate(date);
-              setCurrentDate(`${getDate(date)}.${getMonth(date) + 1}.${getYear(date)}`);
-
-              window.localStorage.setItem('currentDate', `${getDate(date)}.${getMonth(date) + 1}.${getYear(date)}`);
-            }} use='danger' size='large' />
-          </Hint>}
-      </footer>
+        <Center>
+          <footer style={{
+            fontSize: '12px',
+            fontStyle: 'italic',
+            fontWeight: 100
+          }}>
+            Сделано в Диадочике с любовью
+          </footer>
+        </Center>
     </Center>
     </DateContext.Provider>
   )
