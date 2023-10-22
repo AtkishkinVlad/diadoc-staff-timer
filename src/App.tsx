@@ -4,12 +4,12 @@ import { Button, Center, DatePicker, Gapped, Hint, Modal, Tooltip } from '@skbko
 import clockPath from './assets/clock.svg';
 import { DateAfterLastLeave } from './components/Date';
 import React, { createContext, useEffect, useState } from 'react';
-import { ArrowRoundTimeBackIcon64Regular } from '@skbkontur/icons/icons/ArrowRoundTimeBackIcon/ArrowRoundTimeBackIcon64Regular';
 import getDate from 'date-fns/getDate';
 import getYear from 'date-fns/getYear';
 import { getMonth } from 'date-fns';
 import format from 'date-fns/format';
 import { TimeClockMoveBackIcon16Regular } from '@skbkontur/icons/icons/TimeClockMoveBackIcon/TimeClockMoveBackIcon16Regular';
+import { TimeClockMoveBackIcon64Regular } from '@skbkontur/icons/icons/TimeClockMoveBackIcon/TimeClockMoveBackIcon64Regular';
 import { TransportAirRocketIcon16Regular } from '@skbkontur/icons/icons/TransportAirRocketIcon/TransportAirRocketIcon16Regular';
 
 export const DateContext = createContext<null | Date>(null);
@@ -112,7 +112,7 @@ function App() {
           }} onClick={open} />
       </Hint>
       {date && <Hint pos='left' text="Сбросить таймер">
-            <ArrowRoundTimeBackIcon64Regular className='reset' aria-label='Сбросить таймер' onClick={() => {
+            <TimeClockMoveBackIcon64Regular className='reset' aria-label='Сбросить таймер' onClick={() => {
               const date = new Date();
 
               setDate(date);
