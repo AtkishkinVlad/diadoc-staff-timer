@@ -11,7 +11,7 @@ export const DateAfterLastLeave: FC = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentDate(new Date())
-        }, 30_000);
+        }, 10_000);
 
         return () => clearInterval(timer);
     }, [currentDate])
