@@ -29,7 +29,7 @@ function App() {
   };
 
   const validate = () => {
-    const errorNew = !!currentDate && !DatePicker.validate(currentDate, { minDate: '01.07.2022', maxDate });
+    const errorNew = !!currentDate && !DatePicker.validate(currentDate, { maxDate });
     setError(errorNew);
     setTooltip(errorNew);
   };
