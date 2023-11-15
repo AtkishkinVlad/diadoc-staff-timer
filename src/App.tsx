@@ -131,15 +131,6 @@ function App() {
           <DateAfterLastLeave />
         </div>
       </main>
-        <Center>
-          <footer style={{
-            fontSize: '12px',
-            fontStyle: 'italic',
-            fontWeight: 100
-          }}>
-            Сделано в Диадочике с любовью
-          </footer>
-        </Center>
     </Center>
     </DateContext.Provider>
   )

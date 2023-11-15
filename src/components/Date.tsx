@@ -1,6 +1,8 @@
 import { FC, useContext, useEffect, useState } from "react";
 
 import intervalToDuration from 'date-fns/intervalToDuration';
+import differenceInDays from 'date-fns/differenceInDays';
+
 import { DateContext } from "../App";
 import { FormattedPlural } from 'react-intl';
 
@@ -26,15 +28,13 @@ export const DateAfterLastLeave: FC = () => {
 
     try {
         const interval = intervalToDuration({ start: startDate, end: currentDate });
+        const days = differenceInDays(startDate, currentDate);
     
         return (
             <time>
-                <span className="date__days">{interval.days}&nbsp;<FormattedPlural value={Number(interval.days)} one="день" zero="дней" few="дня" many="дней" other="день" /></span> <span className="separator__big">/</span>
+                <span className="date__days">{Math.abs(days)}&nbsp;<FormattedPlural value={Math.abs(Number(days))} one="день" zero="дней" few="дня" many="дней" other="день" /></span> <span className="separator__big">/</span>
                 <span className="date__hours">{interval.hours}&nbsp;<FormattedPlural value={Number(interval.hours)} one="час" zero="часов" few="часа" many="часов" other="часов" /></span> <span className="separator__big">/</span>
                 <span className="date__minutes">{interval.minutes}&nbsp;<FormattedPlural value={Number(interval.minutes)} one="минуту" zero="минут" few="минуты" many="минут" other="минут" /></span>
-                <br /><hr />
-                <span className="date__year">{interval.years}&nbsp;<FormattedPlural value={Number(interval.years)} one="год" zero="лет" few="года" many="лет" other="лет" /></span> <span className="separator">/</span>
-                <span className="date__month">{interval.months}&nbsp;<FormattedPlural value={Number(interval.months)} one="месяц" zero="месяцев" few="месяца" many="месяцев" other="месяцев" /></span>
             </time>
         )
     } catch {
